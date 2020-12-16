@@ -1,13 +1,7 @@
-import styled from "styled-components"
-
-const D = styled.div`
-width: 200px;
-height: 200px;
-background-color: red;
-`
+import { Tipografia, Tasto } from "../Componenti/Libreria"
 
 export default function Home() {
   return (
-    <D />
+    <Tasto primario ><Tipografia livello="h4" colore="scuro" bold variato>Kecco</Tipografia></Tasto>
   )
 }
