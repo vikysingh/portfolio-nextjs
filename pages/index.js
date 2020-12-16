@@ -1,13 +1,9 @@
-import styled from "styled-components"
+import { TextField } from "../Componenti/Libreria"
 
-const D = styled.div`
-width: 200px;
-height: 200px;
-background-color: red;
-`
+const { TextArea } = TextField
 
 export default function Home() {
   return (
-    <D />
+    <TextArea placeholder="ciao" />
   )
 }

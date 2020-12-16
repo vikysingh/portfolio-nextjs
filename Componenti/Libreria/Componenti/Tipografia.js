@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Heading1_2, Heading3_4_paragrafo } from "../Fabbrica/Tipografia"
+import { Heading1_2, Heading3_4_paragrafo } from "../Fabbrica/_tipografia"
 
 const Heading1 = styled.h1`
 font-size: 6rem;
