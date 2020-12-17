@@ -2,15 +2,29 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/vikysingh/portfolio-nextjs/",
+  "bugs": {
+    "url": "https://github.com/vikysingh/portfolio-nextjs/issues"
+  },
+  "author": {
+    "name": "Vikram Singh",
+    "email": "singhvik071@gmail.com",
+    "url": "http://vikramsingh.netlify.com/"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vikysingh/portfolio-nextjs/"
+  },
   "dependencies": {
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-grid-system": "^7.1.1",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
