@@ -1,3 +1,5 @@
 export { default as Tipografia } from "./Componenti/Tipografia"
 export { default as Tasto } from "./Componenti/Tasto"
 export { default as TextField } from "./Componenti/TextField"
+export { default as Padding } from "./Componenti/Padding"
+export { default as Margin } from "./Componenti/Margin"
