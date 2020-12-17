@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components"
 import Head from "next/head"
 
 const GlobalStyle = createGlobalStyle`
-
 *, body {
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Quicksand', sans-serif;
     color: #1C1D25;
 }
-
 *:focus, body:focus {
     outline: none;
 }
