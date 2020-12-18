@@ -58,7 +58,7 @@ ${({destraSM}) => destraSM && css`
     `
 }
 
-${({sopraSM}) => sopra && css`
+${({sopraSM}) => sopraSM && css`
     margin-top: sopraSM;
     `
 }
