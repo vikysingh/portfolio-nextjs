@@ -2,11 +2,13 @@ import { Container, Col, Row } from "react-grid-system"
 import { HiMenuAlt4, HiArrowNarrowDown } from "react-icons/hi"
 import { Tipografia, Tasto } from "../Componenti/Libreria"
 
+import Navbar from "../Componenti/Navbar"
+
 const about = () => {
     return (
         <Container>
             <Row>
-                <HiMenuAlt4 />
+                <Navbar />
             </Row>
             <Row>
                 <Row>
