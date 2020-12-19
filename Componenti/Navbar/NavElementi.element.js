@@ -6,7 +6,7 @@ flex-direction: column;
 justify-content: space-around;
 align-items: center;
 padding: 40px 0;
-position: fixed;
+/* position: fixed; */
 top: 0;
 left: 0;
 width: 100vw;
