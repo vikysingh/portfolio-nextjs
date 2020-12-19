@@ -52,6 +52,6 @@ export default function Tipografia({ livello, children, colore, bold, variato })
             return <Paragrafo colore={colore} bold={bold} > {children} </Paragrafo>;
     
         default:
-            return Heading1;
+            return <Heading1 colore={colore} bold={bold} variato={variato} > {children} ></Heading1>;
     }
 }

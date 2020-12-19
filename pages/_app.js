@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
 *:focus, body:focus {
     outline: none;
 }
+
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 `
 
 function MyApp({ Component, pageProps }) {
