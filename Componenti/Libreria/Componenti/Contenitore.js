@@ -1,40 +1,40 @@
 import styled from "styled-components"
 import Tipografia from "./Tipografia"
 
+//Intero contenitore per il grid
 const Section = styled.section`
 width: 100vw;
-min-height: 100vh;
+height: auto;
 
 display: grid;
 grid-template-rows: 15% 85%;
 `
-
+//Primo row
 const PrimoRow = styled.div`
 width: 100%;
-height: 100%;
+height: auto;
 grid-row: 1 / 2;
 `
-
+//Secondo row
 const SecondoRow = styled(PrimoRow)`
 grid-row: 2 / -1;
-
-padding-left: 15%;
 
 display: grid;
 grid-template-columns: repeat(2, 50%);
 
-& > div:first-child {
+& .secondo_row__primo_col {
     grid-column: 1 / 2;
+    padding-left: 15%;
 }
 
-& div p {
+& .secondo_row__primo_col p {
     width: 70%;
     margin: 5%;
 }
 
-& > div:nth-child(2) {
+& .secondo_row__secondo_col {
     grid-column: 2 / -1;
-    padding-top: 15%;
+    padding-top: 10%;
 }
 
 & img{
@@ -44,13 +44,17 @@ grid-template-columns: repeat(2, 50%);
 
 @media (max-width: 600px) {
     & {
-        grid-template-columns: 100% !important;
+        grid-template-columns: 100%;
         padding-left: 10%;
     }
 
-    & > div {
-        grid-column: 1 / -1 !important;
-        padding: 0%;
+    & .secondo_row__primo_col, & .secondo_row__secondo_col {
+        grid-column: 1 / -1;
+        padding: 20px 0%;
+    }
+
+    & h2 {
+        width: 80%;
     }
 
     & img {
@@ -66,16 +70,18 @@ const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer }) => {
         <Section>
             <PrimoRow> {primo} </PrimoRow>
             <SecondoRow>
-                <div>
+                <div className="secondo_row__primo_col" >
                     <Tipografia livello="h2" colore="rosso" variato bold>
                         {titolo}
                     </Tipografia>
                     <Tipografia livello="paragrafo" >
                         {paragrafo}
                     </Tipografia>
-                    {footer}
+                    <div>
+                        {footer}
+                    </div>
                 </div>
-                <div>
+                <div className="secondo_row__secondo_col" >
                     {sinistra}
                 </div>
             </SecondoRow>
