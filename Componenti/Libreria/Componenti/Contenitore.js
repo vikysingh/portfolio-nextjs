@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Tipografia from "./Tipografia"
 
 //Intero contenitore per il grid
@@ -24,7 +24,7 @@ grid-template-columns: repeat(2, 50%);
 
 & .secondo_row__primo_col {
     grid-column: 1 / 2;
-    padding-left: 15%;
+    padding-left: 25%;
 }
 
 & .secondo_row__primo_col p {
@@ -38,7 +38,7 @@ grid-template-columns: repeat(2, 50%);
 }
 
 & img{
-    width: 60%;
+    width: ${({home}) => home ? "90%" : "60%"};
     height: auto;
 }
 
@@ -65,11 +65,11 @@ grid-template-columns: repeat(2, 50%);
 }
 `
 
-const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer }) => {
+const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer, home }) => {
     return (
         <Section>
             <PrimoRow> {primo} </PrimoRow>
-            <SecondoRow>
+            <SecondoRow home={home}>
                 <div className="secondo_row__primo_col" >
                     <Tipografia livello="h2" colore="rosso" variato bold>
                         {titolo}
