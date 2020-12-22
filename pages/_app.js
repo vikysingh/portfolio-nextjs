@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "styled-components"
 import Head from "next/head"
+import StudioContext from "../Componenti/Context/StudioContext"
+import { useState, useEffect } from "react"
+import sanityClient from "../client"
 
 const GlobalStyle = createGlobalStyle`
 *, body {
@@ -20,6 +23,15 @@ body {
 `
 
 function MyApp({ Component, pageProps }) {
+    
+    const [ studioData, setStudioData ] = useState([])
+
+    useEffect(() => {
+        sanityClient
+            .fetch("*[]")
+            .then(data => setStudioData(data))
+    }, [])
+    
   return <>
   <Head>
       <meta charSet="utf-8" />
@@ -33,7 +45,17 @@ function MyApp({ Component, pageProps }) {
       <title>Vikram Singh</title>
   </Head>
   <GlobalStyle />
-  <Component {...pageProps} />
+  <StudioContext.Provider value={{
+      about: studioData[6],
+      contatti: studioData[3],
+      /*
+      Così non va bene e bisogna separare in un unico oggetto/gruppo che contenga i progetti
+      nei schema di Sanity
+      */
+      progetti: [ studioData[0],studioData[1],studioData[2],studioData[4],studioData[5],studioData[7] ]
+  }}>
+    <Component {...pageProps} />
+  </StudioContext.Provider>
   </>
 }
 

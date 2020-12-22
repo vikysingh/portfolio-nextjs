@@ -1,29 +1,24 @@
-import { Contenitore } from "../Componenti/Libreria"
+import { Contenitore, Caricamento } from "../Componenti/Libreria"
 import Navbar from "../Componenti/Navbar"
 import { Sinistra, Footer } from "../Componenti/About"
 
-import sanityClient from "../client"
-import { useEffect } from "react"
+import StudioContext from "../Componenti/Context/StudioContext"
+import { useContext } from "react"
 
 const Primo = <Navbar />
 
-const about = () => {
+const about = ( ) => {
 
-    useEffect(() => {
-        sanityClient
-            .fetch(`*`)
-            .then(data => {
-                console.clear()
-                console.log(data)
-            })
-    }, [])
+    const { about } = useContext(StudioContext)
 
     return (
-       <Contenitore primo={Primo} titolo="Vikram Singh" paragrafo="Paragrafo test"
-       sinistra={Sinistra} 
-       footer={Footer}
-       />
+       about ? <Contenitore primo={Primo} titolo={about.titolo} paragrafo={about.descrizione}
+       sinistra={<Sinistra imgSrc={about.imgsrc} imgAlt={about.imgalt} />}
+       footer={<Footer link={about.cvlink} />}
+       /> : <Caricamento />
+    
     );
 }
+
 
 export default about;

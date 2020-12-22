@@ -18,16 +18,14 @@ width: 80%;
 `
 
 //Footer per la colonna destra
-export const Footer = <>
+export const Footer = ({ email, tel }) => <>
 <Tipografia livello="paragrafo" >Email</Tipografia>
 <Tipografia livello="paragrafo" bold >
-    <a href="mailto:singhvik071@gmail.com">singhvik071@gmail.com</a>
+    <a href={`mailto:${email}`}>{email}</a>
 </Tipografia>
 
 <Tipografia livello="paragrafo" >Telefono</Tipografia>
-<Tipografia livello="paragrafo" bold >
-    <a href="tel:339-806-9470">339 806 9470</a>
-</Tipografia>
+<Tipografia livello="paragrafo" bold >{tel}</Tipografia>
 </>
 
 //Colonna sinistra, intero form

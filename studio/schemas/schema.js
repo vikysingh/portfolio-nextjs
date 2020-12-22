@@ -15,7 +15,7 @@ export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     about,
-    contatti,
-    home
+    home,
+    contatti
   ])
 })

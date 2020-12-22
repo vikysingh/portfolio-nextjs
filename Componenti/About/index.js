@@ -1,8 +1,8 @@
 import { Tipografia, Tasto } from "../Libreria"
 import { HiArrowDown } from "react-icons/hi"
 
-export const Footer = <Tasto>
-<Tipografia livello="h4" bold >Scarica CV <HiArrowDown /> </Tipografia>
+export const Footer = ({ link }) => <Tasto>
+<Tipografia livello="h4" bold ><a href={link} target="_blank" referrerPolicy="no-referrer" >Scarica CV</a> <HiArrowDown /> </Tipografia>
 </Tasto>
 
-export const Sinistra = <img src="https://vikramsingh.netlify.app/src/assets/profile.jpeg" alt="Foto profilo" />
+export const Sinistra = ({imgSrc, imgAlt}) => <img src={imgSrc} alt={imgAlt} />

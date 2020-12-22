@@ -1,34 +1,29 @@
-import { Contenitore } from "../Componenti/Libreria"
+import { Contenitore, Caricamento } from "../Componenti/Libreria"
 import Navbar from "../Componenti/Navbar"
 import { Footer, Sinistra } from "../Componenti/Home"
 
 import { useState } from "react"
 
-const dummyData = [
-  {
-    titolo: "Cosmetic Comerce",
-    image: "https://vikramsingh.netlify.app/src/assets/cosmetic-commerce.webp"
-  },
-  {
-    titolo: "Breaking The Bad",
-    image: "https://vikramsingh.netlify.app/src/assets/breakingBad.webp"
-  },
-  {
-    titolo: "Moviezzed",
-    image: "https://vikramsingh.netlify.app/src/assets/moviezzed.webp"
-  }
-]
+import StudioContext from "../Componenti/Context/StudioContext"
+import { useContext, useEffect } from "react"
 
 export default function Home() {
 
   const [ counter, setCounter ] = useState(0)
+  const { progetti } = useContext(StudioContext)
 
+  useEffect(() => {
+    console.log(progetti)
+  }, [progetti])
+
+  //Questa funzione + solo per la prova e da togliere presto
   function increment() {
-    if(counter < 2) {
+    if(counter < 5) {
       setCounter(counter + 1)
     }
   }
 
+  //Questa funzione è solo per la prova e da togliere presto
   function decrement() {
     if(counter > 0) {
       setCounter(counter - 1)
@@ -36,10 +31,10 @@ export default function Home() {
   }
 
   return (
-    <Contenitore primo={Navbar} home
-    titolo={dummyData[counter].titolo} paragrafo="Un paragrafino"
+    progetti && progetti[0] ? <Contenitore primo={<Navbar />} home
+    titolo={progetti[counter].titolo} paragrafo={progetti[counter].descrizione}
     footer={<Footer clickDestro={increment} clickSinistro={decrement} />}
-    sinistra={<Sinistra src={dummyData[counter].image} />}
-    />
+    sinistra={<Sinistra src={progetti[counter].imgsrc} />}
+    /> : <Caricamento />
   )
 }
