@@ -9,13 +9,18 @@ export default {
             type: 'string'
         },
         {
-            title: "ID Link",
-            name: "linkid",
+            title: "Link GitHub",
+            name: "link",
             type: "string"
         },
         {
             title: "Sfondo",
             name: "sfondo",
+            type: "string"
+        },
+        {
+            title: "ID",
+            name: "id",
             type: "string"
         }
     ]

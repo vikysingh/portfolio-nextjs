@@ -15,8 +15,6 @@ overflow: hidden;
 @media (max-width: 600px) {
     & {
         flex-direction: column;
-        height: auto;
-        overflow-y: scroll;
     }
 }
 `
@@ -30,8 +28,7 @@ text-align: start;
 z-index: ${({index}) => index ? index : "initial"};
 transform-origin: center;
 padding-bottom: 50px;
-opacity: 0.5;
-
+transition: 400ms all ease;
 
 & h1 {
     transform: rotate(-180deg);
@@ -46,7 +43,7 @@ opacity: 0.5;
 }
 
 &:hover {
-    opacity: 1;
+    width: calc(100vw/4);
 }
 
 &:hover h1 {
@@ -70,6 +67,11 @@ opacity: 0.5;
         margin-top: 15px;
     }
 
+    &:hover {
+        width: 100vw;
+        height: calc(100vh/4);
+    }
+
     &:hover h1 {
         margin-top: -30px;
         margin-right: 0px;
@@ -79,9 +81,9 @@ opacity: 0.5;
 
 export default function Index({ elementi }) {
     return <Wrapper>
-        {elementi.map(elemento => <Card index={elementi.indexOf(elemento)} sfondo={elemento.sfondo} >
+        {elementi.map(elemento => <Card key={elemento.link} index={elementi.indexOf(elemento)} sfondo={elemento.sfondo} >
             <Tipografia livello="h1" bold>
-                <Link href={`/progetto/${elemento.linkid}`}>{elemento.titolo}</Link>
+                <Link href={elemento.link}>{elemento.titolo}</Link>
             </Tipografia>
             </Card>)}
     </Wrapper>
