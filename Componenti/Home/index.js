@@ -1,6 +1,8 @@
 import { Tipografia } from "../Libreria"
 import styled from "styled-components"
 
+import Link from "next/link"
+
 const  Wrapper = styled.section`
 width: 100vw;
 height: 100vh;
@@ -79,7 +81,7 @@ export default function Index({ elementi }) {
     return <Wrapper>
         {elementi.map(elemento => <Card index={elementi.indexOf(elemento)} sfondo={elemento.sfondo} >
             <Tipografia livello="h1" bold>
-                <a href="#">{elemento.titolo}</a>
+                <Link href={`/progetto/${elemento.linkid}`}>{elemento.titolo}</Link>
             </Tipografia>
             </Card>)}
     </Wrapper>
