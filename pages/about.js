@@ -5,14 +5,12 @@ import { Sinistra, Footer } from "../Componenti/About"
 import StudioContext from "../Componenti/Context/StudioContext"
 import { useContext } from "react"
 
-const Primo = <Navbar />
-
 const about = ( ) => {
 
     const { about } = useContext(StudioContext)
 
     return (
-       about ? <Contenitore primo={Primo} titolo={about.titolo} paragrafo={about.descrizione}
+       about ? <Contenitore primo={<Navbar />} titolo={about.titolo} paragrafo={about.descrizione}
        sinistra={<Sinistra imgSrc={about.imgsrc} imgAlt={about.imgalt} />}
        footer={<Footer link={about.cvlink} />}
        /> : <Caricamento />

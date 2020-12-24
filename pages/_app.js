@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
     color: #1C1D25;
+    text-decoration: none;
 }
 *:focus, body:focus {
     outline: none;

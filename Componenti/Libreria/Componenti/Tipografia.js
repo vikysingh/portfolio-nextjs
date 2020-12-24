@@ -26,6 +26,8 @@ ${({colore, bold, variato}) => Heading1_2(colore, bold, variato)}
 const Heading3 = styled.h3`
 font-size: 3rem;
 ${({colore, bold}) => Heading3_4_paragrafo(colore, bold)}
+
+
 `
 
 const Heading4 = styled.h4`
@@ -52,6 +54,6 @@ export default function Tipografia({ livello, children, colore, bold, variato })
             return <Paragrafo colore={colore} bold={bold} > {children} </Paragrafo>;
     
         default:
-            return <Heading1 colore={colore} bold={bold} variato={variato} > {children} ></Heading1>;
+            return <Heading1 colore={colore} bold={bold} variato={variato} > {children} </Heading1>;
     }
 }
