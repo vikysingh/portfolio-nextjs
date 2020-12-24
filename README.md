@@ -1,30 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Benvenuti al mio portfolio web
 
-## Getting Started
+### Panoramica
+Come già suggerisce il titolo, questo è il mio portfolio(sito web) sviluppato in Nextjs.
 
-First, run the development server:
+### Motivazione
+Il mio primo portfolio è stato sviluppato in HTML, CSS e vanilla JS (con integrazione di webpack e babel). Ampliarlo in futuro sarebbe risultato un po' complicato con il view/UI, ad esempio e avessi voluto aggiungere più route e tenere il funzionamento come quello di un'applicazione a pagina singola(SPA). 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+In Nextjs questa è funzione nativa (anche in Create React App con il React Router, tuttavia, ho scelto questo framework per il rendering al lato server), in aggiunta al fatto che sia facilmente possibile trasformare il sito in un'app web progressiva (pwa).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Sanity è stato utilizzato come backend per le sua semplicità e facilità d'uso, oltre ai suoi piano di prezzi.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+### Note
+Il design system di questo progetto è piuttosto piccolo e specifico al sito, per questo motivo ci sono varizioni tra i primi due header(H1, H2) ed il resto
+della tipografia, che normalmente potrebbe apparire incoerente.
 
-To learn more about Next.js, take a look at the following resources:
+### Tecnologie per sviluppo
+* Nextjs
+* Sanity
+* Styled components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Tecnologie per design
+* Figma
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Piattaforma di deployment/hosting
+* Netlify
