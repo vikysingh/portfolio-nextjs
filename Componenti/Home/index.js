@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 import Link from "next/link"
 
+const { Heading1 } = Tipografia
+
 const  Wrapper = styled.section`
 width: 100vw;
 height: 100vh;
@@ -44,6 +46,7 @@ transition: 400ms all ease;
 
 &:hover {
     width: calc(100vw/4);
+    border: 2px solid #fff;
 }
 
 &:hover h1 {
@@ -82,9 +85,9 @@ transition: 400ms all ease;
 export default function Index({ elementi }) {
     return <Wrapper>
         {elementi.map(elemento => <Card key={elemento.link} index={elementi.indexOf(elemento)} sfondo={elemento.sfondo} >
-            <Tipografia livello="h1" bold>
+            <Heading1 bold>
                 <Link href={elemento.link}>{elemento.titolo}</Link>
-            </Tipografia>
+            </Heading1>
             </Card>)}
     </Wrapper>
 }

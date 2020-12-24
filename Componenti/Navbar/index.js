@@ -6,6 +6,8 @@ import NavIcon from "./NavIcon.element.js"
 import { useState } from "react"
 
 
+const { Heading3 } = Tipografia
+
 const index = () => {
 
     const [ display, setDisplay ] = useState(false)
@@ -19,18 +21,18 @@ const index = () => {
             <NavIcon clickHandler={() => setDisplay(!display)} tipo={setTipo} />
             {
                 display ? <NavElementi>
-                <Tipografia livello="h3" colore="chiaro" bold>
+                <Heading3 livello="h3" colore="chiaro" bold>
                     <Link href="/">Progetti</Link>
-                </Tipografia>
-                <Tipografia livello="h3" colore="chiaro"  bold>
+                </Heading3>
+                <Heading3 livello="h3" colore="chiaro"  bold>
                     <Link href="/about">About</Link>
-                </Tipografia>
-                <Tipografia livello="h3" colore="chiaro"  bold>
+                </Heading3>
+                <Heading3 livello="h3" colore="chiaro"  bold>
                     <Link href="/contatti">Contatti</Link>
-                </Tipografia>
-                <Tipografia livello="h3" colore="chiaro"  bold>
+                </Heading3>
+                <Heading3 livello="h3" colore="chiaro"  bold>
                     <Link href="/competenze">Competenze</Link>
-                </Tipografia>
+                </Heading3>
               </NavElementi> : <></>
             }
         </nav>

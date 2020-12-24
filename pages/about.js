@@ -10,10 +10,10 @@ const about = ( ) => {
     const { about } = useContext(StudioContext)
 
     return (
-       about ? <Contenitore primo={<Navbar />} titolo={about.titolo} paragrafo={about.descrizione}
-       sinistra={<Sinistra imgSrc={about.imgsrc} imgAlt={about.imgalt} />}
-       footer={<Footer link={about.cvlink} />}
-       /> : <Caricamento />
+       about && about[0]? <Contenitore primo={<Navbar />} titolo={about[0].titolo} paragrafo={about[0].descrizione}
+       sinistra={<Sinistra imgSrc={about[0].imgsrc} imgAlt={about[0].imgalt} />}
+       footer={<Footer link={about[0].cvlink} />} />
+        : <Caricamento />
     
     );
 }

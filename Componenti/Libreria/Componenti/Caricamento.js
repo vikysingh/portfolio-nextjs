@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import Tipografia from "./Tipografia"
 
+const { Heading4 } = Tipografia
+
 const Wrapper = styled.div`
 position: absolute;
 width: 100vw;
@@ -14,8 +16,8 @@ align-items: center;
 
 export default function Caricamento() {
     return <Wrapper>
-        <Tipografia livello="h4" bold >
+        <Heading4 bold >
             Caricamento in corso...
-        </Tipografia>
+        </Heading4>
     </Wrapper>
 }

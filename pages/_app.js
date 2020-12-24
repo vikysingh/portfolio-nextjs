@@ -3,6 +3,7 @@ import Head from "next/head"
 import StudioContext from "../Componenti/Context/StudioContext"
 import { useState, useEffect } from "react"
 import sanityClient from "../client"
+import sanityFilter from "../utils/filterSanityData"
 
 const GlobalStyle = createGlobalStyle`
 *, body {
@@ -29,7 +30,7 @@ function MyApp({ Component, pageProps }) {
 
     useEffect(() => {
         sanityClient
-            .fetch("*[]")
+            .fetch(`*`)
             .then(data => setStudioData(data))
     }, [])
     
@@ -47,13 +48,10 @@ function MyApp({ Component, pageProps }) {
   </Head>
   <GlobalStyle />
   <StudioContext.Provider value={{
-      about: studioData[6],
-      contatti: studioData[3],
-      /*
-      Così non va bene e bisogna separare in un unico oggetto/gruppo che contenga i progetti
-      nei schema di Sanity
-      */
-      progetti: [ studioData[0],studioData[1],studioData[2],studioData[4],studioData[5],studioData[7] ]
+      about: sanityFilter(studioData, "about"),
+      contatti: sanityFilter(studioData, "contatti"),
+      progetti: sanityFilter(studioData, "home"),
+      competenze: sanityFilter(studioData, "competenze")
   }}>
     <Component {...pageProps} />
   </StudioContext.Provider>

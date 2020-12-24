@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { Tipografia, TextField, Tasto } from "../Libreria"
 
 const { TextArea, Input } = TextField
+const { Paragrafo } = Tipografia
 
 //Form contenitore per contatti form
 const Form = styled.form`
@@ -19,13 +20,13 @@ width: 80%;
 
 //Footer per la colonna destra
 export const Footer = ({ email, tel }) => <>
-<Tipografia livello="paragrafo" >Email</Tipografia>
-<Tipografia livello="paragrafo" bold >
+<Paragrafo >Email</Paragrafo>
+<Paragrafo bold >
     <a href={`mailto:${email}`}>{email}</a>
-</Tipografia>
+</Paragrafo>
 
-<Tipografia livello="paragrafo" >Telefono</Tipografia>
-<Tipografia livello="paragrafo" bold >{tel}</Tipografia>
+<Paragrafo >Telefono</Paragrafo>
+<Paragrafo bold >{tel}</Paragrafo>
 </>
 
 //Colonna sinistra, intero form
@@ -35,6 +36,6 @@ export const Sinistra = <Form>
     <TextArea required placeholder="Messaggio" />
 
     <Tasto primario>
-        <Tipografia livello="paragrafo" colore="chiaro" bold>Invia</Tipografia>
+        <Paragrafo colore="chiaro" bold>Invia</Paragrafo>
     </Tasto>
 </Form>

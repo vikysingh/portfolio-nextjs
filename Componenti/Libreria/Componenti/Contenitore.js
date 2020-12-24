@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components"
 import Tipografia from "./Tipografia"
 
+const { Heading2, Paragrafo } = Tipografia
+
 //Intero contenitore per il grid
 const Section = styled.section`
 width: 100vw;
@@ -71,12 +73,12 @@ const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer, home }) => {
             <PrimoRow> {primo} </PrimoRow>
             <SecondoRow home={home}>
                 <div className="secondo_row__primo_col" >
-                    <Tipografia livello="h2" colore="rosso" variato bold>
+                    <Heading2 livello="h2" colore="rosso" variato bold>
                         {titolo}
-                    </Tipografia>
-                    <Tipografia livello="paragrafo" >
+                    </Heading2>
+                    <Paragrafo livello="paragrafo" >
                         {paragrafo}
-                    </Tipografia>
+                    </Paragrafo>
                     <div>
                         {footer}
                     </div>

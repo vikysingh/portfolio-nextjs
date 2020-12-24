@@ -8,14 +8,16 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import about from "./about"
 import contatti from "./contatti"
-import main from "./main"
+import progetti from "./progetti"
+import competenza from "./competenza"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     about,
-    main,
-    contatti
+    progetti,
+    contatti,
+    competenza
   ])
 })
