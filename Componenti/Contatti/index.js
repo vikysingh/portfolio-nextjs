@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { Tipografia, TextField, Tasto } from "../Libreria"
-
 const { TextArea, Input } = TextField
 const { Paragrafo } = Tipografia
+
 
 //Form contenitore per contatti form
 const Form = styled.form`
@@ -30,7 +30,7 @@ export const Footer = ({ email, tel }) => <>
 </>
 
 //Colonna sinistra, intero form
-export const Sinistra = <Form>
+export const Sinistra = <Form initial={{ y: 120, opacity: 0 }} animate={{ y: 0, opacity: 1 }} >
     <Input type="text" placeholder="Nome" required />
     <Input type="email" placeholder="Email" required />
     <TextArea required placeholder="Messaggio" />

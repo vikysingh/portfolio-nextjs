@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
 import Tipografia from "./Tipografia"
+import {motion} from "framer-motion"
 
 const { Heading2, Paragrafo } = Tipografia
 
@@ -67,27 +68,75 @@ grid-template-columns: repeat(2, 50%);
 }
 `
 
+const pageAnimationStyle = {
+    exit: {
+        opacity: 0
+    },
+    initial: {
+        opacity: 0
+    },
+    animate: {
+        opacity: 1
+    }
+}
+
+// const childAnimationStyle1 = {
+//     initial: {
+//         ...pageAnimationStyle.initial,
+//         x: -120
+//     },
+//     animate: {
+//         ...pageAnimationStyle.animate,
+//         x: 0,
+//         transition: {
+//             duration: .6
+//         }
+//     }
+// }
+
+// const childAnimationStyle2 = {
+//     ...childAnimationStyle1,
+//     initial: {
+//         ...childAnimationStyle1.initial,
+//         x: 220
+//     }
+// }
+
 const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer, home }) => {
+    // console.log(childAnimationStyle2)
     return (
-        <Section>
-            <PrimoRow> {primo} </PrimoRow>
-            <SecondoRow home={home}>
-                <div className="secondo_row__primo_col" >
-                    <Heading2 livello="h2" colore="rosso" variato bold>
-                        {titolo}
-                    </Heading2>
-                    <Paragrafo livello="paragrafo" >
-                        {paragrafo}
-                    </Paragrafo>
-                    <div>
-                        {footer}
-                    </div>
-                </div>
-                <div className="secondo_row__secondo_col" >
-                    {sinistra}
-                </div>
-            </SecondoRow>
-        </Section>
+        <motion.div exit={{opacity: pageAnimationStyle.exit.opacity}} 
+            initial={{ opacity: pageAnimationStyle.initial.opacity }}
+            animate={{ opacity: pageAnimationStyle.animate.opacity }}
+        >
+            <Section>
+                <PrimoRow> {primo} </PrimoRow>
+                <SecondoRow home={home}>
+                    <motion.div className="secondo_row__primo_col" 
+                    initial={{opacity: 0, x: -120}} animate={{opacity: 1, x: 0, transition: {
+                        duration: .6
+                    }}}
+                    >
+                        <Heading2 livello="h2" colore="rosso" variato bold>
+                            {titolo}
+                        </Heading2>
+                        <Paragrafo livello="paragrafo" >
+                            {paragrafo}
+                        </Paragrafo>
+                        <div>
+                            {footer}
+                        </div>
+                    </motion.div >
+                    <motion.div className="secondo_row__secondo_col" 
+                    initial={{opacity: 0, x: 220}} animate={{opacity: 1, x: 0, transition: {
+                        duration: .6
+                    }}}
+                    >
+                        {sinistra}
+                    </motion.div>
+                </SecondoRow>
+            </Section>
+        </motion.div>
     );
 }
 

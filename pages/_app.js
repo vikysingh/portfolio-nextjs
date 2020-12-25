@@ -4,7 +4,7 @@ import StudioContext from "../Componenti/Context/StudioContext"
 import { useState, useEffect } from "react"
 import sanityClient from "../client"
 import sanityFilter from "../utils/filterSanityData"
-
+import {  AnimatePresence } from "framer-motion"
 const GlobalStyle = createGlobalStyle`
 *, body {
     margin: 0;
@@ -47,14 +47,17 @@ function MyApp({ Component, pageProps }) {
       <title>Vikram Singh</title>
   </Head>
   <GlobalStyle />
-  <StudioContext.Provider value={{
+  <AnimatePresence exitBeforeEnter >
+    <StudioContext.Provider value={{
       about: sanityFilter(studioData, "about"),
       contatti: sanityFilter(studioData, "contatti"),
       progetti: sanityFilter(studioData, "home"),
       competenze: sanityFilter(studioData, "competenze")
-  }}>
-    <Component {...pageProps} />
-  </StudioContext.Provider>
+    }}>
+      
+        <Component {...pageProps} />
+    </StudioContext.Provider>
+  </AnimatePresence>
   </>
 }
 
