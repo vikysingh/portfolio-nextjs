@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+//Contenitore per gli elementi del navbar
 const NavElementi = styled.div`
 display: flex;
 flex-direction: column;

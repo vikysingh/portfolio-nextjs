@@ -1,11 +1,12 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Tipografia from "./Tipografia"
 import {motion} from "framer-motion"
+import PropTypes from 'prop-types'
 
 const { Heading2, Paragrafo } = Tipografia
 
 //Intero contenitore per il grid
-const Section = styled.section`
+const Section = styled(motion.section)`
 width: 100vw;
 height: auto;
 
@@ -41,7 +42,7 @@ grid-template-columns: repeat(2, 50%);
 }
 
 & img{
-    width: ${({home}) => home ? "90%" : "60%"};
+    width: 60%;
     height: auto;
 }
 
@@ -80,38 +81,14 @@ const pageAnimationStyle = {
     }
 }
 
-// const childAnimationStyle1 = {
-//     initial: {
-//         ...pageAnimationStyle.initial,
-//         x: -120
-//     },
-//     animate: {
-//         ...pageAnimationStyle.animate,
-//         x: 0,
-//         transition: {
-//             duration: .6
-//         }
-//     }
-// }
-
-// const childAnimationStyle2 = {
-//     ...childAnimationStyle1,
-//     initial: {
-//         ...childAnimationStyle1.initial,
-//         x: 220
-//     }
-// }
-
-const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer, home }) => {
-    // console.log(childAnimationStyle2)
+const Contenitore = ({ primo, titolo, paragrafo, footer,sinistra }) => {
+    
     return (
-        <motion.div exit={{opacity: pageAnimationStyle.exit.opacity}} 
+            <Section exit={{opacity: pageAnimationStyle.exit.opacity}} 
             initial={{ opacity: pageAnimationStyle.initial.opacity }}
-            animate={{ opacity: pageAnimationStyle.animate.opacity }}
-        >
-            <Section>
+            animate={{ opacity: pageAnimationStyle.animate.opacity }}>
                 <PrimoRow> {primo} </PrimoRow>
-                <SecondoRow home={home}>
+                <SecondoRow>
                     <motion.div className="secondo_row__primo_col" 
                     initial={{opacity: 0, x: -120}} animate={{opacity: 1, x: 0, transition: {
                         duration: .6
@@ -136,8 +113,23 @@ const Contenitore = ({ primo, titolo, paragrafo, sinistra, footer, home }) => {
                     </motion.div>
                 </SecondoRow>
             </Section>
-        </motion.div>
     );
+}
+
+Contenitore.propTypes = {
+    primo: PropTypes.element,
+    titolo: PropTypes.string.isRequired,
+    paragrafo: PropTypes.string.isRequired,
+    footer: PropTypes.element,
+    sinistra: PropTypes.element.isRequired
+}
+
+Contenitore.defaultProps = {
+    primo: <></>,
+    titolo: "",
+    paragrafo: "",
+    footer: <></>,
+    sinistra: <></>
 }
 
 export default Contenitore;

@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { Tipografia, TextField, Tasto } from "../Libreria"
+import PropTypes from 'prop-types'
+
 const { TextArea, Input } = TextField
 const { Paragrafo } = Tipografia
 
@@ -39,3 +41,13 @@ export const Sinistra = <Form initial={{ y: 120, opacity: 0 }} animate={{ y: 0, 
         <Paragrafo colore="chiaro" bold>Invia</Paragrafo>
     </Tasto>
 </Form>
+
+Footer.propTypes = {
+    email: PropTypes.string.isRequired,
+    tel: PropTypes.string.isRequired
+}
+
+/*Footer.defaultProps = {
+    email: "#",
+    tel: "#"
+}*/

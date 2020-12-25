@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import PropTypes from 'prop-types'
 
 const Tasto = styled.button`
 padding: 15px 20px;
@@ -22,10 +23,9 @@ ${({secondario}) => secondario && css`
 `}
 `
 
-/*
-color: ${({colore}) => {
-    return colore === "bianco" ? "#ffffff" : colore === "rosso" ? "#FF1791" : "#1C1D25"
-}};
-*/
+Tasto.propTypes = {
+    primario: PropTypes.bool,
+    secondario: PropTypes.bool
+}
 
 export default Tasto;

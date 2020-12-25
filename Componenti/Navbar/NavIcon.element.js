@@ -1,6 +1,7 @@
 import { Tasto, Tipografia } from "../Libreria"
 import { HiMenuAlt4, HiX } from "react-icons/hi"
 import styled from "styled-components"
+import PropTypes from 'prop-types'
 
 const { Heading3 } = Tipografia
 
@@ -22,6 +23,15 @@ const NavIcon = ({ clickHandler, tipo }) => {
             </Heading3>
         </TastoWrapper>
     );
+}
+
+NavIcon.propTypes = {
+    clickHandler: PropTypes.func,
+    tipo: PropTypes.func.isRequired
+}
+
+NavIcon.defaultProps = {
+    clickHandler: function() {}
 }
 
 export default NavIcon;

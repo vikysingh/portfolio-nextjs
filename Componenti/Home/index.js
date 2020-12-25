@@ -1,8 +1,10 @@
 import { Tipografia } from "../Libreria"
 import styled from "styled-components"
+import PropTypes from 'prop-types'
 
 import Link from "next/link"
 
+//Wrapper per i progetti, simile a quello del componente della pagina "competenze"
 const { Heading1 } = Tipografia
 
 const  Wrapper = styled.section`
@@ -84,10 +86,19 @@ transition: 400ms all ease;
 
 export default function Index({ elementi }) {
     return <Wrapper>
-        {elementi.map(elemento => <Card key={elemento.link} index={elementi.indexOf(elemento)} sfondo={elemento.sfondo} >
+        {elementi.map(elemento => <Card key={elemento.titolo} index={elementi.indexOf(elemento)}
+        sfondo={elemento.sfondo} >
             <Heading1 bold>
                 <Link href={elemento.link}>{elemento.titolo}</Link>
             </Heading1>
             </Card>)}
     </Wrapper>
+}
+
+Index.propTypes = {
+    elementi: PropTypes.arrayOf(PropTypes.shape({
+        link: PropTypes.string.isRequired,
+        sfondo: PropTypes.string.isRequired,
+        titolo: PropTypes.string.isRequired
+    }))
 }

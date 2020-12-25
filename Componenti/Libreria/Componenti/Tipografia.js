@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Heading1_2, Heading3_4_paragrafo } from "../Fabbrica/_tipografia"
+import PropTypes from 'prop-types'
 
 const Heading1 = styled.h1`
 font-size: 6rem;
@@ -37,6 +38,44 @@ const Paragrafo = styled.p`
 font-size: 1rem;
 ${({colore, bold}) => Heading3_4_paragrafo(colore, bold)}
 `
+
+//Oggetti creati separatamente per evitare la ripetizione del codice
+const MainHeadingPropTypes = {
+    colore: PropTypes.string,
+    bold: PropTypes.bool,
+    variato: PropTypes.bool
+}
+
+const MainHeadingDefaultProps = {
+    colore: "",
+    bold: false,
+    variato: false
+}
+
+const UltimiHeadingPropTypes = {
+    colore: PropTypes.string,
+    bold: PropTypes.bool
+}
+
+const UltimiHeadingDefaultProps = {
+    colore: "#646464",
+    bold: false
+}
+
+Heading1.propTypes = {...MainHeadingPropTypes}
+Heading1.defaultProps = {...MainHeadingDefaultProps}
+
+Heading2.propTypes = {...MainHeadingPropTypes}
+Heading2.defaultProps = {...MainHeadingDefaultProps}
+
+Heading3.propTypes = {...UltimiHeadingPropTypes}
+Heading3.defaultProps = {...UltimiHeadingDefaultProps}
+
+Heading4.propTypes = {...UltimiHeadingPropTypes}
+Heading4.defaultProps = {...UltimiHeadingDefaultProps}
+
+Paragrafo.propTypes = {...UltimiHeadingPropTypes}
+Paragrafo.defaultProps = {...UltimiHeadingDefaultProps}
 
 export default {
     Heading1, Heading2, Heading3, Heading4, Paragrafo

@@ -3,6 +3,8 @@ import { Tipografia } from "../Libreria"
 
 const { Paragrafo } = Tipografia
 
+//Un wrapper per la pagina competenze, sarà la colonna sinitra
+// del componente Conteniore 
 const Wrapper = styled.div`
 max-width: 70%;
 height: 100%;
@@ -14,6 +16,7 @@ justify-content: center;
 align-items: flex-start;
 `
 
+//un card che contiene il testo della competenza, come "HTML5"
 export const Card = styled(Paragrafo)`
 padding: 10px 14px;
 margin: 8px;
