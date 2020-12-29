@@ -1,12 +1,13 @@
-import Navbar from "../Componenti/Navbar"
-import Wrapper from "../Componenti/Home"
-
-import { Caricamento } from "../Componenti/Libreria"
-
 import StudioContext from "../Componenti/Context/StudioContext"
 import { useContext } from "react"
 
 import {motion} from "framer-motion"
+
+import dynamic from "next/dynamic"
+
+const Navbar = dynamic(() => import("../Componenti/Navbar/"))
+const Wrapper = dynamic(() => import("../Componenti/Home/"))
+const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Caricamento/"))
 
 export default function Home() {
 

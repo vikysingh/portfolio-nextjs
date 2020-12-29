@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import sanityClient from "../client"
 import sanityFilter from "../utils/filterSanityData"
 import {  AnimatePresence } from "framer-motion"
+
 const GlobalStyle = createGlobalStyle`
 *, body {
     margin: 0;

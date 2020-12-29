@@ -1,9 +1,13 @@
-import { Contenitore, Caricamento } from "../Componenti/Libreria"
-import { Footer, Sinistra } from "../Componenti/Contatti"
-import Navbar from "../Componenti/Navbar"
-
 import StudioContext from "../Componenti/Context/StudioContext"
 import { useContext } from "react"
+
+import dynamic from "next/dynamic"
+
+const Contenitore = dynamic(() => import("../Componenti/Libreria/Componenti/Contenitore/"))
+const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Caricamento/"))
+const Footer = dynamic(() => import("../Componenti/Contatti/").then(comp => comp.Footer))
+const Sinistra = dynamic(() => import("../Componenti/Contatti/").then(comp => comp.Sinistra))
+const Navbar = dynamic(() => import("../Componenti/Navbar/"))
 
 const contatti = () => {
 
