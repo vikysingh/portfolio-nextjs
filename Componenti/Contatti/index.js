@@ -39,6 +39,8 @@ export const Footer = ({ email, tel }) => <>
 //Colonna sinistra, intero form
 export const Sinistra = () => {
 
+    //State sarà collegato al componente genitore, per la validazione, attraverso useReducer
+    //e due prop
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [messaggio, setMessaggio] = useState("")
@@ -46,11 +48,16 @@ export const Sinistra = () => {
     return <Form initial={{ y: 120, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }} >
 
-    <Input type="text" placeholder="Nome" name="contattiNome" required
+    <Input data-testid={config.child.nomeInput["data-testid"]} type="text"
+    placeholder="Nome" name="contattiNome" required
     value={nome} onChange={e => setNome(e.target.value)} />
-    <Input type="email" placeholder="Email" name="contattiEmail" required
+
+    <Input data-testid={config.child.emailInput["data-testid"]} type="email"
+    placeholder="Email" name="contattiEmail" required
     value={email} onChange={e => setEmail(e.target.value)} />
-    <TextArea required placeholder="Messaggio" name="contattiMessaggio"
+
+    <TextArea data-testid={config.child.messaggioInput["data-testid"]} required
+    placeholder="Messaggio" name="contattiMessaggio"
     value={messaggio} onChange={e => setMessaggio(e.target.value)} />
 
     <Tasto primario>

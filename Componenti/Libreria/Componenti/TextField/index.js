@@ -3,16 +3,16 @@ import base from "../../Fabbrica/_textfield"
 
 import config from "./config"
 
-const Input = styled.input.attrs({
-    "data-testid": config.input["data-testid"]
-})`
+const Input = styled.input.attrs(props => ({
+    "data-testid": props["data-testid"] || config.input["data-testid"]
+}))`
 width: 100%;
 ${base()}
 `
 
-const TextArea = styled.textarea.attrs({
-    "data-testid": config.textarea["data-testid"]
-})`
+const TextArea = styled.textarea.attrs(props => ({
+    "data-testid": props["data-testid"] || config.textarea["data-testid"]
+}))`
 
 ${base()}
 max-width: 100%;

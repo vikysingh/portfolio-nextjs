@@ -8,6 +8,7 @@ export default {
     props: {
         inputPlaceholder: "Input test",
         tipo: "text",
-        textareaPlaceholder: "TextArea test"
+        textareaPlaceholder: "TextArea test",
+        valore: "Valore cambiato per test"
     }
 }
