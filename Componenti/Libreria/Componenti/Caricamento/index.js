@@ -1,9 +1,13 @@
 import styled from "styled-components"
-import Tipografia from "./Tipografia"
+import Tipografia from "../Tipografia/"
+
+import config from "./config"
 
 const { Heading4 } = Tipografia
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({
+    'data-testid': config["data-testid"]
+})`
 position: absolute;
 width: 100vw;
 height: 100vh;

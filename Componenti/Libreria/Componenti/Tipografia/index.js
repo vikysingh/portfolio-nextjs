@@ -1,8 +1,21 @@
 import styled from "styled-components"
-import { Heading1_2, Heading3_4_paragrafo } from "../Fabbrica/_tipografia"
+import { Heading1_2, Heading3_4_paragrafo } from "../../Fabbrica/_tipografia"
 import PropTypes from 'prop-types'
 
-const Heading1 = styled.h1`
+import config from "./config"
+
+const { heading1, heading3 } = config
+
+/*
+Avviso:
+Le componenti Heading1 e Heading2 sono simili tra loro con la differenza
+nella semantica e font-size, e stesso vale per il resto delle componenti h3, h4 e p.
+Per questo motivo sono i componenti Heading1 e Heading3 hanno un attributo testid.
+*/
+
+const Heading1 = styled.h1.attrs({
+    "data-testid": heading1["data-testid"]
+})`
 font-size: 6rem;
 ${({colore, bold, variato}) => Heading1_2(colore, bold, variato)}
 
@@ -24,7 +37,9 @@ ${({colore, bold, variato}) => Heading1_2(colore, bold, variato)}
 }
 `
 
-const Heading3 = styled.h3`
+const Heading3 = styled.h3.attrs({
+    "data-testid": heading3["data-testid"]
+})`
 font-size: 3rem;
 ${({colore, bold}) => Heading3_4_paragrafo(colore, bold)}
 `
@@ -39,7 +54,10 @@ font-size: 1rem;
 ${({colore, bold}) => Heading3_4_paragrafo(colore, bold)}
 `
 
-//Oggetti creati separatamente per evitare la ripetizione del codice
+/*
+Oggetti creati separatamente per evitare la ripetizione del codice.
+(Guardare commento sopra)
+*/
 const MainHeadingPropTypes = {
     colore: PropTypes.string,
     bold: PropTypes.bool,

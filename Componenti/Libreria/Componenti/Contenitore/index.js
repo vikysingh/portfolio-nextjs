@@ -1,12 +1,16 @@
 import styled from "styled-components"
-import Tipografia from "./Tipografia"
 import {motion} from "framer-motion"
 import PropTypes from 'prop-types'
+
+import Tipografia from "../Tipografia/"
+import config from "./config"
 
 const { Heading2, Paragrafo } = Tipografia
 
 //Intero contenitore per il grid
-const Section = styled(motion.section)`
+const Section = styled(motion.section).attrs({
+    'data-testid': config["data-testid"]
+})`
 width: 100vw;
 height: auto;
 
@@ -87,24 +91,31 @@ const Contenitore = ({ primo, titolo, paragrafo, footer,sinistra }) => {
             <Section exit={{opacity: pageAnimationStyle.exit.opacity}} 
             initial={{ opacity: pageAnimationStyle.initial.opacity }}
             animate={{ opacity: pageAnimationStyle.animate.opacity }}>
-                <PrimoRow> {primo} </PrimoRow>
-                <SecondoRow>
-                    <motion.div className="secondo_row__primo_col" 
+
+                <PrimoRow data-testid={config.child.primoRow["data-testid"]} > {primo} </PrimoRow>
+
+                <SecondoRow data-testid={config.child.secondoRow["data-testid"]}>
+
+                    <motion.div data-testid={config.child.secondoRow.child.primoCol["data-testid"]}
+                    className="secondo_row__primo_col" 
                     initial={{opacity: 0, x: -120}} animate={{opacity: 1, x: 0, transition: {
                         duration: .6
                     }}}
                     >
-                        <Heading2 livello="h2" colore="rosso" variato bold>
+                        <Heading2 data-testid={config.child.secondoRow.child.primoCol.heading["data-testid"]}
+                        livello="h2" colore="rosso" variato bold>
                             {titolo}
                         </Heading2>
-                        <Paragrafo livello="paragrafo" >
+                        <Paragrafo livello="paragrafo"
+                        data-testid={config.child.secondoRow.child.primoCol.paragrafo["data-testid"]}>
                             {paragrafo}
                         </Paragrafo>
-                        <div>
+                        <div data-testid={config.child.secondoRow.child.primoCol.footer["data-testid"]}>
                             {footer}
                         </div>
                     </motion.div >
-                    <motion.div className="secondo_row__secondo_col" 
+                    <motion.div data-testid={config.child.secondoRow.child.secondoCol["data-testid"]}
+                    className="secondo_row__secondo_col" 
                     initial={{opacity: 0, x: 220}} animate={{opacity: 1, x: 0, transition: {
                         duration: .6
                     }}}

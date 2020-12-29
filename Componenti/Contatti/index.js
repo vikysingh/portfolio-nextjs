@@ -32,10 +32,10 @@ export const Footer = ({ email, tel }) => <>
 </>
 
 //Colonna sinistra, intero form
-export const Sinistra = <Form initial={{ y: 120, opacity: 0 }} animate={{ y: 0, opacity: 1 }} >
-    <Input type="text" placeholder="Nome" required />
-    <Input type="email" placeholder="Email" required />
-    <TextArea required placeholder="Messaggio" />
+export const Sinistra = () => <Form data-testid="Contatti-sinistra" initial={{ y: 120, opacity: 0 }} animate={{ y: 0, opacity: 1 }} >
+    <Input type="text" placeholder="Nome" name="contattiNome" required />
+    <Input type="email" placeholder="Email" name="contattiEmail" required />
+    <TextArea required placeholder="Messaggio" name="contattiMessaggio" />
 
     <Tasto primario>
         <Paragrafo colore="chiaro" bold>Invia</Paragrafo>
