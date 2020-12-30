@@ -14,12 +14,10 @@ top: 20px;
 
 const NavIcon = ({ clickHandler, tipo }) => {
 
-    const Tipo = tipo()
-
     return (
         <TastoWrapper onClick={clickHandler} >
             <Heading3>
-                {Tipo === "chiuso" ? <HiX /> : <HiMenuAlt4 /> }
+                {tipo === "chiuso" ? <HiX /> : <HiMenuAlt4 /> }
             </Heading3>
         </TastoWrapper>
     );

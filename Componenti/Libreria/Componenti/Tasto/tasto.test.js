@@ -1,9 +1,11 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { render, screen } from "@testing-library/react"
+import { render, screen, cleanup } from "@testing-library/react"
 
 import Tasto from "./index"
 import config from "./config"
+
+afterEach(cleanup)
 
 const { style: { stylePrimario, styleSecondario }, props: { testo, primario, secondario } } = config
 

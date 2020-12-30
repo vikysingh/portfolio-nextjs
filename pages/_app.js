@@ -3,7 +3,7 @@ import Head from "next/head"
 import StudioContext from "../Componenti/Context/StudioContext"
 import { useState, useEffect } from "react"
 import sanityClient from "../client"
-import sanityFilter from "../utils/filterSanityData"
+import filterSanityData from "../utils/filterSanityData/"
 import {  AnimatePresence } from "framer-motion"
 
 const GlobalStyle = createGlobalStyle`
@@ -50,10 +50,10 @@ function MyApp({ Component, pageProps }) {
   <GlobalStyle />
   <AnimatePresence exitBeforeEnter >
     <StudioContext.Provider value={{
-      about: sanityFilter(studioData, "about"),
-      contatti: sanityFilter(studioData, "contatti"),
-      progetti: sanityFilter(studioData, "home"),
-      competenze: sanityFilter(studioData, "competenze")
+      about: filterSanityData(studioData, "about"),
+      contatti: filterSanityData(studioData, "contatti"),
+      progetti: filterSanityData(studioData, "home"),
+      competenze: filterSanityData(studioData, "competenze")
     }}>
       
         <Component {...pageProps} />

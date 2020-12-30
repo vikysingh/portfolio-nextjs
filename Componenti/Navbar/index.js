@@ -12,13 +12,9 @@ const index = () => {
 
     const [ display, setDisplay ] = useState(false)
 
-    function setTipo() {
-        return display ? "chiuso" : "aperto"
-    }
-
     return (
         <nav>
-            <NavIcon clickHandler={() => setDisplay(!display)} tipo={setTipo} />
+            <NavIcon clickHandler={() => setDisplay(!display)} tipo={display ? "chiuso" : "aperto"} />
             {
                 display ? <NavElementi>
                 <Heading3 livello="h3" colore="chiaro" bold>

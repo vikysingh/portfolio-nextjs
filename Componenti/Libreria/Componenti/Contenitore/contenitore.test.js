@@ -2,10 +2,12 @@ import React from "react"
 
 import "@testing-library/jest-dom"
 
-import { render, screen } from "@testing-library/react"
+import { render, screen, cleanup } from "@testing-library/react"
 
 import Contenitore from "./index"
 import config from "./config"
+
+afterEach(cleanup)
 
 const { props, child } = config
 
@@ -66,9 +68,7 @@ test("Footer della prima colonna del secondo row, del componente Contenitore dal
     const footerFiglio = footer.firstChild
     
     expect(footer).toBeInTheDocument()
-    expect(footer).toBeInstanceOf(HTMLDivElement)
 
-    expect(footerFiglio).toBeInstanceOf(HTMLHeadingElement)
     expect(footerFiglio).toHaveTextContent(props.footer)
 })
 
@@ -91,7 +91,7 @@ test("Div e H5 della seconda colonna del secondo row, del componente Contenitore
 
     expect(contenitore).toBeInTheDocument()
 
-    expect(contenitoreDiv).toBeInstanceOf(HTMLDivElement)
+    // expect(contenitoreDiv).toBeInstanceOf(HTMLDivElement)
 
     expect(contenitoreDivH5).toBeInstanceOf(HTMLHeadingElement)
     expect(contenitoreDivH5).toHaveTextContent(props.sinistra)
