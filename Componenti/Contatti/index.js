@@ -11,7 +11,10 @@ const { Paragrafo } = Tipografia
 
 //Form contenitore per contatti form
 const Form = styled.form.attrs({
-    "data-testid": config["data-testid"]
+    "data-testid": config["data-testid"],
+    name: "contatti_netlify",
+    method: "POST",
+    "data-netlify": true
 })`
 width: 80%;
 & input, & textarea {

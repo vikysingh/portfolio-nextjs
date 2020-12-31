@@ -6,7 +6,8 @@ import config from "./config"
 const { style: { stylePrimario, styleSecondario } } = config
 
 const Tasto = styled.button.attrs({
-    "data-testid": config["data-testid"]
+    "data-testid": config["data-testid"],
+    role: "button"
 })`
 padding: 15px 20px;
 width: auto;
