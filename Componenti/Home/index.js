@@ -1,4 +1,4 @@
-import { Tipografia } from "../Libreria"
+import { Tipografia, Flex } from "../Libreria"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 
@@ -7,13 +7,9 @@ import Link from "next/link"
 //Wrapper per i progetti, simile a quello del componente della pagina "competenze"
 const { Heading1 } = Tipografia
 
-const  Wrapper = styled.section`
+const  Wrapper = styled(Flex)`
 width: 100vw;
 height: 100vh;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
 overflow: hidden;
 
 @media (max-width: 600px) {
@@ -85,7 +81,7 @@ transition: 400ms all ease;
 `
 
 export default function Index({ elementi }) {
-    return <Wrapper>
+    return <Wrapper direzione="row" content="center" items="center" >
         {elementi.map(elemento => <Card key={elemento.titolo} index={elementi.indexOf(elemento)}
         sfondo={elemento.sfondo} >
             <Heading1 bold>

@@ -1,11 +1,8 @@
 import styled from "styled-components"
+import { Flex } from "../Libreria"
 
 //Contenitore per gli elementi del navbar
-const NavElementi = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
+const NavElementi = styled(Flex)`
 padding: 40px 0;
 position: fixed;
 top: 0;

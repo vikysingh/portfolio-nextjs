@@ -40,7 +40,9 @@ function MyApp({ Component, pageProps }) {
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#55E6C1" />
-      <meta name="description" content="Sviluppatore FrontEnd" />
+      <meta name="description" content="Sono uno sviluppatore FrontEnd specializzato in Reactjs." />
+      <meta name="og:title" property="og:title" content="Vikram Singh" />
+      <meta name="og:description" property="og:description" content="Sviluppatore FrontEnd specializzato in Reactjs." />
 
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet" />

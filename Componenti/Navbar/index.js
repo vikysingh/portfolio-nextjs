@@ -16,7 +16,7 @@ const index = () => {
         <nav>
             <NavIcon clickHandler={() => setDisplay(!display)} tipo={display ? "chiuso" : "aperto"} />
             {
-                display ? <NavElementi>
+                display ? <NavElementi direzione="column" content="space-around" items="center" >
                 <Heading3 livello="h3" colore="chiaro" bold>
                     <Link href="/">Progetti</Link>
                 </Heading3>

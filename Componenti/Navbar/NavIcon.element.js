@@ -15,7 +15,7 @@ top: 20px;
 const NavIcon = ({ clickHandler, tipo }) => {
 
     return (
-        <TastoWrapper onClick={clickHandler} >
+        <TastoWrapper name="Icona tasto navbar" onClick={clickHandler} >
             <Heading3>
                 {tipo === "chiuso" ? <HiX /> : <HiMenuAlt4 /> }
             </Heading3>
@@ -25,7 +25,7 @@ const NavIcon = ({ clickHandler, tipo }) => {
 
 NavIcon.propTypes = {
     clickHandler: PropTypes.func,
-    tipo: PropTypes.func.isRequired
+    tipo: PropTypes.string.isRequired
 }
 
 NavIcon.defaultProps = {

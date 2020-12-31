@@ -7,7 +7,7 @@ const Contenitore = dynamic(() => import("../Componenti/Libreria/Componenti/Cont
 const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Caricamento/"))
 const Navbar = dynamic(() => import("../Componenti/Navbar/"))
 
-const Sinistra = dynamic(() => import("../Componenti/Competenze/"))
+const Wrapper = dynamic(() => import("../Componenti/Competenze/"))
 const Card = dynamic(() => import("../Componenti/Competenze/").then(comp => comp.Card))
 
 const competenze = () => {
@@ -20,10 +20,10 @@ const competenze = () => {
         titolo="Il mio arsenale"
         paragrafo="Paragrafo di descrizione"
         sinistra={
-            <Sinistra>
+            <Wrapper direzione="row" content="center" items="flex-start" wrap="wrap" >
                 {competenze.map(elemento => <Card key={elemento._id} bold
                 colore="chiaro" > {elemento.nome} </Card> )}
-            </Sinistra>
+            </Wrapper>
         } /> 
         :
         <Caricamento />
