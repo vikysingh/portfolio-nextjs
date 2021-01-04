@@ -40,7 +40,7 @@ ${({colore, bold, variato}) => Heading1_2(colore, bold, variato)}
 const Heading3 = styled.h3.attrs({
     "data-testid": heading3["data-testid"]
 })`
-font-size: 3rem;
+font-size: 2.5rem;
 ${({colore, bold}) => Heading3_4_paragrafo(colore, bold)}
 `
 

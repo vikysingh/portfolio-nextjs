@@ -14,7 +14,8 @@ const Form = styled.form.attrs({
     "data-testid": config["data-testid"],
     name: "contatti_netlify",
     method: "POST",
-    "data-netlify": true
+    "data-netlify": "true",
+    action: "/successo"
 })`
 width: 80%;
 & input, & textarea {
