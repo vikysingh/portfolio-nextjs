@@ -1,5 +1,5 @@
 import StudioContext from "../Componenti/Context/StudioContext"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 
 import dynamic from "next/dynamic"
 
@@ -13,6 +13,11 @@ const Card = dynamic(() => import("../Componenti/Competenze/").then(comp => comp
 const competenze = () => {
 
     const { competenze } = useContext(StudioContext)
+    
+    // useEffect(() => {
+    //     console.clear()
+    //     console.log(competenze)
+    // }, [competenze])
 
     return (
         competenze && competenze[0] ? <Contenitore

@@ -27,14 +27,28 @@ body {
 
 function MyApp({ Component, pageProps }) {
     
-    const [ studioData, setStudioData ] = useState([])
+    const [ studioData, setStudioData ] = useState([{}])
 
     useEffect(() => {
         sanityClient
             .fetch(`*`)
-            .then(data => setStudioData(data))
+            .then(data => {
+                // console.clear()
+                //data.map(each => console.log(each._type))
+                // let g = filterSanityData(data, "autore")[0]
+                // console.log(g)
+                setStudioData(data)
+            })
+
+            /*
+            about-
+            competenze
+            home
+            sanity.imageAsset
+            autore
+            */
     }, [])
-    
+
   return <>
   <Head>
       <meta charSet="utf-8" />
@@ -52,10 +66,13 @@ function MyApp({ Component, pageProps }) {
   <GlobalStyle />
   <AnimatePresence exitBeforeEnter >
     <StudioContext.Provider value={{
-      about: filterSanityData(studioData, "about"),
-      contatti: filterSanityData(studioData, "contatti"),
-      progetti: filterSanityData(studioData, "home"),
-      competenze: filterSanityData(studioData, "competenze")
+      about: filterSanityData(studioData, "autore")[0],
+      contatti: filterSanityData(studioData, "contatti")[0],
+      progetti: filterSanityData(studioData, "autore"),
+      competenze: {
+          competenze: filterSanityData(studioData, "competenze")[0],
+          descrizione: filterSanityData(studioData, "competenze")[0]
+      }
     }}>
       
         <Component {...pageProps} />

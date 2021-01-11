@@ -1,5 +1,5 @@
 import StudioContext from "../Componenti/Context/StudioContext"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 
 import dynamic from "next/dynamic"
 
@@ -13,10 +13,16 @@ const Footer = dynamic(() => import("../Componenti/About/").then(comp => comp.Fo
 const about = ( ) => {
 
     const { about } = useContext(StudioContext)
+    
+    useEffect(() => {
+        console.clear()
+        console.log(about)
+    }, [about])
 
     return (
-       about && about[0]? <Contenitore primo={<Navbar />} titolo={about[0].titolo} paragrafo={about[0].descrizione}
-       sinistra={<Sinistra imgSrc={about[0].imgsrc} imgAlt={about[0].imgalt} />}
+       about && about[0]? <Contenitore primo={<Navbar />} titolo={about[0].nome}
+       paragrafo={about[0].bio[0].children[0].text}
+       sinistra={<Sinistra imgSrc={about[0].foto.asset._ref} imgAlt="Foto profilo" />}
        footer={<Footer link={about[0].cvlink} />} />
         : <Caricamento />
     
