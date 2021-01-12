@@ -3,7 +3,7 @@ import Head from "next/head"
 import StudioContext from "../Componenti/Context/StudioContext"
 import { useState, useEffect } from "react"
 import sanityClient from "../client"
-import filterSanityData from "../utils/filterSanityData/"
+// import filterSanityData from "../utils/filterSanityData/"
 import {  AnimatePresence } from "framer-motion"
 
 const GlobalStyle = createGlobalStyle`
@@ -27,26 +27,53 @@ body {
 
 function MyApp({ Component, pageProps }) {
     
-    const [ studioData, setStudioData ] = useState([{}])
+    const [ studioData, setStudioData ] = useState([
+        //Progetti
+        {
+            progetti: []
+        },
+        //Competenze
+        {
+            competenza: [],
+            competenze_descrizione: [{
+                children: [
+                    {
+                        text: ""
+                    }
+                ]
+            }]
+        },
+        //Contatti
+        {
+            descrizione: "",
+            email: "",
+            telefono: "",
+            titolo: ""
+        },
+        //About
+        {
+            cvlink: "",
+            nome: "",
+            bio: [{
+                children: [
+                    {
+                        text: ""
+                    }
+                ]
+            }],
+        },
+        //Foto
+        {
+            ulr: ""
+        }
+    ])
 
     useEffect(() => {
         sanityClient
             .fetch(`*`)
             .then(data => {
-                // console.clear()
-                //data.map(each => console.log(each._type))
-                // let g = filterSanityData(data, "autore")[0]
-                // console.log(g)
                 setStudioData(data)
             })
-
-            /*
-            about-
-            competenze
-            home
-            sanity.imageAsset
-            autore
-            */
     }, [])
 
   return <>
@@ -66,12 +93,22 @@ function MyApp({ Component, pageProps }) {
   <GlobalStyle />
   <AnimatePresence exitBeforeEnter >
     <StudioContext.Provider value={{
-      about: filterSanityData(studioData, "autore")[0],
-      contatti: filterSanityData(studioData, "contatti")[0],
-      progetti: filterSanityData(studioData, "autore"),
+      progetti: studioData[0].progetti,
+      about: {
+          bio: studioData[3].bio[0].children[0].text,
+          cvlink: studioData[3].cvlink,
+          nome: studioData[3].nome,
+          foto: studioData[4].url
+      },
+      contatti: {
+          descrizione: studioData[2].descrizione,
+          email: studioData[2].email,
+          tel: studioData[2].telefono,
+          titolo: studioData[2].titolo
+      },
       competenze: {
-          competenze: filterSanityData(studioData, "competenze")[0],
-          descrizione: filterSanityData(studioData, "competenze")[0]
+          competenze: studioData[1].competenza,
+          descrizione: studioData[1].competenze_descrizione[0].children[0].text
       }
     }}>
       

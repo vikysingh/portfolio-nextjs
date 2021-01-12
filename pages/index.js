@@ -11,7 +11,7 @@ const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Cari
 
 export default function Home() {
 
-  const progetti = useContext(StudioContext)
+  const {progetti} = useContext(StudioContext)
 
   return (
         progetti && progetti[0] ?

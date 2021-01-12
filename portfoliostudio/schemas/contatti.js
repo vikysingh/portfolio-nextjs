@@ -4,13 +4,8 @@ export default {
     type: 'document',
     fields: [
         {
-            title: 'Titolo primario',
-            name: 'titoloprimario',
-            type: 'string'
-        },
-        {
-            title: 'Titolo secondario',
-            name: 'titolosecondario',
+            title: 'Titolo',
+            name: 'titolo',
             type: 'string'
         },
         {

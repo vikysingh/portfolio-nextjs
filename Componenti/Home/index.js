@@ -82,10 +82,11 @@ transition: 400ms all ease;
 
 export default function Index({ elementi }) {
     return <Wrapper direzione="row" content="center" items="center" >
-        {elementi.map(elemento => <Card key={elemento.titolo} index={elementi.indexOf(elemento)}
-        sfondo={elemento.sfondo} >
+        {elementi.map(elemento => <Card key={elemento._key}
+        index={elementi.indexOf(elemento)}
+        sfondo={elemento.tema} >
             <Heading1 bold>
-                <Link href={elemento.link}>{elemento.titolo}</Link>
+                <Link href={elemento.link_progetto}>{elemento.nome_progetto}</Link>
             </Heading1>
             </Card>)}
     </Wrapper>
@@ -93,8 +94,8 @@ export default function Index({ elementi }) {
 
 Index.propTypes = {
     elementi: PropTypes.arrayOf(PropTypes.shape({
-        link: PropTypes.string.isRequired,
-        sfondo: PropTypes.string.isRequired,
-        titolo: PropTypes.string.isRequired
+        link_progetto: PropTypes.string.isRequired,
+        tema: PropTypes.string.isRequired,
+        nome_progetto: PropTypes.string.isRequired
     }))
 }

@@ -14,13 +14,11 @@ const contatti = () => {
     const { contatti } = useContext(StudioContext)
 
     return (
-        contatti && contatti[0] ? 
-            <>
-            <Contenitore primo={<Navbar />} titolo={contatti[0].titoloprimario}
-            paragrafo={contatti[0].descrizione}
-            footer={<Footer email={contatti[0].email} tel={contatti[0].telefono} />}
+        contatti && contatti.titolo ? 
+            <Contenitore primo={<Navbar />} titolo={contatti.titolo}
+            paragrafo={contatti.descrizione}
+            footer={<Footer email={contatti.email} tel={contatti.tel} />}
             sinistra={<Sinistra />} /> 
-        </>
         : <Caricamento />
     );
 }

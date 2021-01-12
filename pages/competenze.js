@@ -1,5 +1,5 @@
 import StudioContext from "../Componenti/Context/StudioContext"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 
 import dynamic from "next/dynamic"
 
@@ -13,21 +13,16 @@ const Card = dynamic(() => import("../Componenti/Competenze/").then(comp => comp
 const competenze = () => {
 
     const { competenze } = useContext(StudioContext)
-    
-    // useEffect(() => {
-    //     console.clear()
-    //     console.log(competenze)
-    // }, [competenze])
 
     return (
-        competenze && competenze[0] ? <Contenitore
+        competenze && competenze.descrizione ? <Contenitore
         primo={<Navbar />}
         titolo="Il mio arsenale"
-        paragrafo="Paragrafo di descrizione"
+        paragrafo={competenze.descrizione}
         sinistra={
             <Wrapper direzione="row" content="center" items="flex-start" wrap="wrap" >
-                {competenze.map(elemento => <Card key={elemento._id} bold
-                colore="chiaro" > {elemento.nome} </Card> )}
+                {competenze.competenze.map(elemento => <Card key={elemento} bold
+                colore="chiaro" > {elemento} </Card> )}
             </Wrapper>
         } /> 
         :
