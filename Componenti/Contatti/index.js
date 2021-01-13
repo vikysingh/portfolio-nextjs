@@ -14,7 +14,8 @@ const Form = styled.form.attrs({
     "data-testid": config["data-testid"],
     name: "contatti_netlify",
     method: "POST",
-    "data-netlify": config["data-netlify"],
+    //"data-netlify": config["data-netlify"],
+    netlify: config["data-netlify"],
     action: "/successo"
 })`
 width: 80%;
