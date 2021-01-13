@@ -1,5 +1,6 @@
 export default {
     "data-testid": "Contatti-sinistra",
+    "data-netlify": "true",
     child: {
         nomeInput: {
             "data-testid": "Contatti-sinistra-nome_input",

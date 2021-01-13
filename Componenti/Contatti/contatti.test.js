@@ -13,6 +13,7 @@ test("Sinistra componente da Contatti", () => {
     //const sinistraTest = screen.getByTestId(config["data-testid"])
 
     //Input del form di contatti
+    const formTest = screen.getByTestId(config["data-testid"])
     const nomeInputTest = screen.getByTestId(config.child.nomeInput["data-testid"])
     const emailInputTest = screen.getByTestId(config.child.emailInput["data-testid"])
     const messaggioInputTest = screen.getByTestId(config.child.messaggioInput["data-testid"])
@@ -28,5 +29,8 @@ test("Sinistra componente da Contatti", () => {
     expect(nomeInputTest.value).toBe(config.child.nomeInput.props.valore)
     expect(emailInputTest.value).toBe(config.child.emailInput.props.valore)
     expect(messaggioInputTest.value).toBe(config.child.messaggioInput.props.valore)
+
+    //Controllo che il form di contatti abbia attributo seguente e quel valore
+    expect(formTest).toHaveAttribute("data-netlify", config["data-netlify"])
 
 })
