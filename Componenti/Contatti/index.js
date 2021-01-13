@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { Tipografia, TextField, Tasto } from "../Libreria"
 import PropTypes from 'prop-types'
 import { useState } from "react"
+import { useForm } from "react-hook-form"
 
 import config from "./config"
 
@@ -12,10 +13,9 @@ const { Paragrafo } = Tipografia
 //Form contenitore per contatti form
 const Form = styled.form.attrs({
     "data-testid": config["data-testid"],
-    name: "contatti_netlify",
+    name: "contatti",
     method: "POST",
-    //"data-netlify": config["data-netlify"],
-    netlify: config["data-netlify"],
+    "data-netlify": config["data-netlify"],
     action: "/successo"
 })`
 width: 80%;
@@ -46,24 +46,37 @@ export const Sinistra = () => {
 
     //State sarà collegato al componente genitore, per la validazione, attraverso useReducer
     //e due prop
-    const [nome, setNome] = useState("")
+    /*const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
-    const [messaggio, setMessaggio] = useState("")
+    const [messaggio, setMessaggio] = useState("")*/
+    const { register, handleSubmit, watch, errors } = useForm()
+    const onSubmit = (data, e) => {
+        console.clear()
+        console.log("e: ", e)
+        fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: data
+        })
+        .then(() => console.log("success!!!"))
+    }
+
+    console.log(watch("contattiNome"))
     
     return <Form initial={{ y: 120, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }} >
+    animate={{ y: 0, opacity: 1 }} onSubmit={handleSubmit(onSubmit)} >
 
     <Input data-testid={config.child.nomeInput["data-testid"]} type="text"
-    placeholder="Nome" name="contattiNome" required
-    value={nome} onChange={e => setNome(e.target.value)} />
+    placeholder="Nome" name="contattiNome" ref={register({required: true})} />
+    {errors.contattiNome && <span>This field is required</span>}
 
     <Input data-testid={config.child.emailInput["data-testid"]} type="email"
-    placeholder="Email" name="contattiEmail" required
-    value={email} onChange={e => setEmail(e.target.value)} />
+    placeholder="Email" name="contattiEmail" ref={register({required: true})} />
 
-    <TextArea data-testid={config.child.messaggioInput["data-testid"]} required
-    placeholder="Messaggio" name="contattiMessaggio"
-    value={messaggio} onChange={e => setMessaggio(e.target.value)} />
+    <TextArea data-testid={config.child.messaggioInput["data-testid"]} ref={register({required: true})}
+    placeholder="Messaggio" name="contattiMessaggio"  />
 
     <Tasto primario>
         <Paragrafo colore="chiaro" bold>Invia</Paragrafo>
