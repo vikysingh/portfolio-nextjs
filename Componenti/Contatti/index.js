@@ -52,6 +52,8 @@ export const Sinistra = () => {
     return <Form initial={{ y: 120, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }} >
 
+    <Input type="hidden" name="form-name" value="contatti" />
+
     <Input data-testid={config.child.nomeInput["data-testid"]} type="text"
     placeholder="Nome" name="contattiNome"
      />
