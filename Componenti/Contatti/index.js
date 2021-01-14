@@ -28,6 +28,7 @@ width: 80%;
 }
 `
 
+
 //Footer per la colonna destra
 export const Footer = ({ email, tel }) => <>
 <Paragrafo >Email</Paragrafo>
@@ -42,14 +43,27 @@ export const Footer = ({ email, tel }) => <>
 //Colonna sinistra, intero form
 export const Sinistra = () => {
 
-    //State sarà collegato al componente genitore, per la validazione, attraverso useReducer
-    //e due prop
-    /*const [nome, setNome] = useState("")
-    const [email, setEmail] = useState("")
-    const [messaggio, setMessaggio] = useState("")*/
+    function encode(data) {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&")
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": event.target.getAttribute("name"),
+            ...name
+          })
+        }).then(() => console.log("/thank-you/")).catch(error => alert(error))
+    }
+    
     
     return <Form initial={{ y: 120, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }} >
+    animate={{ y: 0, opacity: 1 }} onSubmit={handleSubmit} >
 
     <Input type="hidden" name="form-name" value="contatti" />
 
@@ -74,8 +88,3 @@ Footer.propTypes = {
     email: PropTypes.string.isRequired,
     tel: PropTypes.string.isRequired
 }
-
-/*Footer.defaultProps = {
-    email: "#",
-    tel: "#"
-}*/
