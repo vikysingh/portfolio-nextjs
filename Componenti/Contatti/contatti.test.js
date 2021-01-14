@@ -18,6 +18,8 @@ test("Sinistra componente da Contatti", () => {
     const emailInputTest = screen.getByTestId(config.child.emailInput["data-testid"])
     const messaggioInputTest = screen.getByTestId(config.child.messaggioInput["data-testid"])
 
+    screen.debug(formTest)
+
     /*
     Simulazione dei eventi sui input, il valore cambia in quello del valore che si trova
     in props dei rispettivi input nel file config, come nel codice sotto

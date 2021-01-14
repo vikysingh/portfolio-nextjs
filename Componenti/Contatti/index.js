@@ -1,8 +1,7 @@
 import styled from "styled-components"
 import { Tipografia, TextField, Tasto } from "../Libreria"
 import PropTypes from 'prop-types'
-import { useState } from "react"
-import { useForm } from "react-hook-form"
+//import { useState } from "react"
 
 import config from "./config"
 
@@ -49,36 +48,22 @@ export const Sinistra = () => {
     /*const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [messaggio, setMessaggio] = useState("")*/
-    const { register, handleSubmit, watch, errors } = useForm()
-    const onSubmit = (data, e) => {
-        console.clear()
-        console.log("e: ", e)
-        fetch("/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: data
-        })
-        .then(() => console.log("success!!!"))
-    }
-
-    console.log(watch("contattiNome"))
     
     return <Form initial={{ y: 120, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }} onSubmit={handleSubmit(onSubmit)} >
+    animate={{ y: 0, opacity: 1 }} >
 
     <Input data-testid={config.child.nomeInput["data-testid"]} type="text"
-    placeholder="Nome" name="contattiNome" ref={register({required: true})} />
-    {errors.contattiNome && <span>This field is required</span>}
+    placeholder="Nome" name="contattiNome"
+     />
 
     <Input data-testid={config.child.emailInput["data-testid"]} type="email"
-    placeholder="Email" name="contattiEmail" ref={register({required: true})} />
+    placeholder="Email" name="contattiEmail"
+     />
 
-    <TextArea data-testid={config.child.messaggioInput["data-testid"]} ref={register({required: true})}
+    <TextArea data-testid={config.child.messaggioInput["data-testid"]}
     placeholder="Messaggio" name="contattiMessaggio"  />
 
-    <Tasto primario>
+    <Tasto primario type="submit">
         <Paragrafo colore="chiaro" bold>Invia</Paragrafo>
     </Tasto>
 </Form>

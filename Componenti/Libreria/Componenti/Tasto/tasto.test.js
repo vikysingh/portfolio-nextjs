@@ -22,11 +22,14 @@ const styleSecondarioCost = {
 }
 
 test("componente Tasto (primario) dalla libreria", () => {
-    render(<Tasto primario={primario}>{testo}</Tasto>)
+    render(<Tasto primario={primario} type="submit">{testo}</Tasto>)
 
-    expect(screen.getByText(testo)).toBeInTheDocument()
-    expect(screen.getByText(testo)).toBeInstanceOf(HTMLButtonElement)
-    expect(screen.getByText(testo)).toHaveStyle({...stylePrimarioCost})
+    const tastoTest = screen.getAllByTestId(config["data-testid"])[0]
+
+    expect(tastoTest).toBeInTheDocument()
+    expect(tastoTest).toBeInstanceOf(HTMLButtonElement)
+    expect(tastoTest).toHaveStyle({...stylePrimarioCost})
+    expect(tastoTest).toHaveAttribute("type", "submit")
 })
 
 test("componente Tasto (secondario) dalla libreria", () => {
