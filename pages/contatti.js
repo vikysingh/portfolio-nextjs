@@ -5,8 +5,7 @@ import dynamic from "next/dynamic"
 
 const Contenitore = dynamic(() => import("../Componenti/Libreria/Componenti/Contenitore/"))
 const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Caricamento/"))
-const Footer = dynamic(() => import("../Componenti/Contatti/").then(comp => comp.Footer))
-const Sinistra = dynamic(() => import("../Componenti/Contatti/").then(comp => comp.Sinistra))
+const Sinistra = dynamic(() => import("../Componenti/Contatti/"))
 const Navbar = dynamic(() => import("../Componenti/Navbar/"))
 
 const contatti = () => {
@@ -17,8 +16,7 @@ const contatti = () => {
         contatti && contatti.titolo ? 
             <Contenitore primo={<Navbar />} titolo={contatti.titolo}
             paragrafo={contatti.descrizione}
-            footer={<Footer email={contatti.email} tel={contatti.tel} />}
-            sinistra={<Sinistra />} /> 
+            sinistra={<Sinistra  email={contatti.email} tel={contatti.tel} /> } />
         : <Caricamento />
     );
 }
