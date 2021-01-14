@@ -17,7 +17,6 @@ test("Sinistra componente da Contatti", () => {
     const nomeInputTest = screen.getByTestId(config.child.nomeInput["data-testid"])
     const emailInputTest = screen.getByTestId(config.child.emailInput["data-testid"])
     const messaggioInputTest = screen.getByTestId(config.child.messaggioInput["data-testid"])
-
     screen.debug(formTest)
 
     /*
