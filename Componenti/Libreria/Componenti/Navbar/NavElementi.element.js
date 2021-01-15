@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Flex } from "../Libreria"
+import Flex from "../Flex"
 
 //Contenitore per gli elementi del navbar
 const NavElementi = styled(Flex)`

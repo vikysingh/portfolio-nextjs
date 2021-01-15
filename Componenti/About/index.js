@@ -12,6 +12,11 @@ export const Footer = ({ link }) => <Tasto>
 
 export const Sinistra = ({imgSrc, imgAlt}) => <img src={imgSrc} alt={imgAlt} />
 
+export default {
+    Footer,
+    Sinistra
+}
+
 Footer.propTypes = {
     link: PropTypes.string.isRequired
 }

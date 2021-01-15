@@ -5,7 +5,7 @@ import {motion} from "framer-motion"
 
 import dynamic from "next/dynamic"
 
-const Navbar = dynamic(() => import("../Componenti/Navbar/"))
+const Navbar = dynamic(() => import("../Componenti/Libreria").then(comp => comp.Navbar))
 const Wrapper = dynamic(() => import("../Componenti/Home/"))
 const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Caricamento/"))
 

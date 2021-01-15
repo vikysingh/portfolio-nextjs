@@ -1,4 +1,4 @@
-import { Tipografia } from "../Libreria"
+import Tipografia from "../Tipografia"
 import Link from "next/link"
 import NavElementi from "./NavElementi.element.js"
 import NavIcon from "./NavIcon.element.js"

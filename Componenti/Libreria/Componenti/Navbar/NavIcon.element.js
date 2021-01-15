@@ -1,4 +1,5 @@
-import { Tasto, Tipografia } from "../Libreria"
+import Tipografia from "../Tipografia"
+import Tasto from "../Tasto"
 import { HiMenuAlt4, HiX } from "react-icons/hi"
 import styled from "styled-components"
 import PropTypes from 'prop-types'

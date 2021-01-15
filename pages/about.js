@@ -5,7 +5,7 @@ import dynamic from "next/dynamic"
 
 const Contenitore = dynamic(() => import("../Componenti/Libreria/Componenti/Contenitore/"))
 const Caricamento = dynamic(() => import("../Componenti/Libreria/Componenti/Caricamento/"))
-const Navbar = dynamic(() => import("../Componenti/Navbar/"))
+const Navbar = dynamic(() => import("../Componenti/Libreria").then(comp => comp.Navbar))
 
 const Sinistra = dynamic(() => import("../Componenti/About/").then(comp => comp.Sinistra))
 const Footer = dynamic(() => import("../Componenti/About/").then(comp => comp.Footer))
