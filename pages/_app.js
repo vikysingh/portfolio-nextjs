@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     sanityClient.fetch(`*`).then((data) => {
-      setStudioData(data);
+      setStudioData(data)
     });
   }, []);
 
@@ -192,6 +192,10 @@ function MyApp({ Component, pageProps }) {
               email: studioData[2].email,
               tel: studioData[2].telefono,
               titolo: studioData[2].titolo,
+              github_link: studioData[2].github_link,
+              linkedin_link: studioData[2].linkedin_link,
+              medium_link: studioData[2].medium_link,
+              youtube_link: studioData[2].youtube_link
             },
             competenze: {
               competenze: studioData[1].competenza,
