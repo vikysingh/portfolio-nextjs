@@ -43,5 +43,19 @@
  "background_color": "#55E6C1",
  "start_url": "/",
  "display": "standalone",
- "orientation": "portrait"
+ "orientation": "portrait",
+ "shortcuts": [
+     {
+         "name": "About",
+         "url": "/about"
+     },
+     {
+        "name": "Competenze",
+        "url": "/competenze"
+    },
+    {
+        "name": "Contatti",
+        "url": "/contatti"
+    }
+ ]
 }
